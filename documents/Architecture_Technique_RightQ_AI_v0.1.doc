@@ -1,0 +1,981 @@
+﻿<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="utf-8">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word compatible HTML">
+<title>Architecture technique — RightQ AI Analytics Assistant</title>
+<!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View><w:Zoom>90</w:Zoom><w:DoNotOptimizeForBrowser/></w:WordDocument></xml><![endif]-->
+<style>
+@page Section1 {size:595.3pt 841.9pt; margin:55pt 52pt 55pt 52pt; mso-header-margin:24pt; mso-footer-margin:24pt;}
+div.Section1 {page:Section1;}
+body{font-family:"Aptos",Calibri,Arial,sans-serif;color:#243447;font-size:10.5pt;line-height:1.42;margin:0;background:#fff;}
+h1{font-size:22pt;color:#0F2742;margin:26pt 0 9pt;border-bottom:2.5pt solid #18A6A6;padding-bottom:5pt;page-break-after:avoid;}
+h2{font-size:15.5pt;color:#153F66;margin:20pt 0 7pt;page-break-after:avoid;}
+h3{font-size:12pt;color:#0F766E;margin:15pt 0 5pt;page-break-after:avoid;}
+h4{font-size:10.5pt;color:#153F66;margin:11pt 0 4pt;page-break-after:avoid;}
+p{margin:0 0 7pt;text-align:justify;}
+ul,ol{margin:4pt 0 8pt 20pt;} li{margin-bottom:3pt;}
+a{color:#145DA0;text-decoration:none;}
+table{border-collapse:collapse;width:100%;margin:8pt 0 13pt;page-break-inside:avoid;}
+th{background:#153F66;color:white;font-weight:700;text-align:left;padding:6pt;border:0.5pt solid #B7C8D6;}
+td{padding:5.5pt;border:0.5pt solid #CBD7E1;vertical-align:top;}
+tr:nth-child(even) td{background:#F7FAFC;}
+.cover{height:700pt;background:#0F2742;color:white;padding:42pt 42pt 28pt;box-sizing:border-box;position:relative;}
+.cover-kicker{font-size:11pt;letter-spacing:1.5pt;text-transform:uppercase;color:#8DE1DD;font-weight:700;margin-top:30pt;}
+.cover-title{font-size:35pt;line-height:1.08;font-weight:800;margin-top:22pt;margin-bottom:18pt;max-width:430pt;}
+.cover-subtitle{font-size:17pt;color:#CFE8F3;margin-bottom:50pt;max-width:430pt;}
+.cover-rule{height:5pt;width:120pt;background:#19B5AE;margin:12pt 0 35pt;}
+.cover-meta{width:100%;border-collapse:collapse;margin-top:80pt;color:white;}
+.cover-meta td{border:none;background:transparent!important;color:white;padding:5pt 0;font-size:10pt;}
+.cover-meta td:first-child{width:125pt;color:#8DE1DD;font-weight:700;text-transform:uppercase;letter-spacing:.5pt;}
+.cover-footer{margin-top:70pt;font-size:9pt;color:#AFC8D8;border-top:0.5pt solid #4B6680;padding-top:10pt;}
+.page-break{page-break-before:always;}
+.callout{border-left:5pt solid #18A6A6;background:#EFFBFA;padding:10pt 12pt;margin:10pt 0 14pt;}
+.callout.warning{border-left-color:#D97706;background:#FFF8E8;}
+.callout.critical{border-left-color:#B42318;background:#FFF1F0;}
+.callout.info{border-left-color:#2563EB;background:#EFF6FF;}
+.status{display:inline-block;padding:2pt 6pt;border-radius:7pt;font-size:8pt;font-weight:700;white-space:nowrap;}
+.status.req{background:#E8F0FB;color:#194B7A;}
+.status.prop{background:#E6F7F4;color:#0F6B63;}
+.status.open{background:#FFF3D6;color:#8C5B00;}
+.status.out{background:#EEF1F4;color:#536273;}
+.tag{font-family:Consolas,"Courier New",monospace;background:#EEF3F7;padding:1pt 4pt;border-radius:3pt;color:#14324A;font-size:9pt;}
+.code{font-family:Consolas,"Courier New",monospace;background:#F4F7FA;border:0.5pt solid #D6E0E8;padding:8pt;white-space:pre-wrap;font-size:8.8pt;line-height:1.35;margin:8pt 0 12pt;}
+.small{font-size:8.7pt;color:#607284;}.muted{color:#6A7B8B;}.center{text-align:center;}.right{text-align:right;}
+.kpi{font-size:18pt;font-weight:800;color:#153F66;}.kpi-label{font-size:8.5pt;text-transform:uppercase;letter-spacing:.5pt;color:#607284;}
+.cards td{width:25%;text-align:center;background:#F3F8FB!important;border:4pt solid white;padding:12pt 6pt;}
+.diagram{border:none;margin:12pt 0 16pt;}.diagram td{border:none!important;background:white!important;text-align:center;padding:5pt;vertical-align:middle;}
+.box{border:1.2pt solid #8EABC0;background:#F8FBFD;padding:9pt;text-align:center;font-weight:700;color:#153F66;}
+.box.primary{background:#153F66;color:white;border-color:#153F66;}.box.teal{background:#E8F8F6;color:#0D6F68;border-color:#42A8A1;}.box.amber{background:#FFF5DD;color:#7A5200;border-color:#D7A934;}.box.gray{background:#F0F3F6;color:#45586A;border-color:#AAB8C3;}.arrow{font-size:18pt;color:#18A6A6;font-weight:800;}
+.toc td{border:none;background:white!important;padding:3pt 0;border-bottom:0.5pt dotted #C8D3DC;}.toc td:last-child{text-align:right;width:55pt;color:#6A7B8B;}
+.footer-note{font-size:8pt;color:#718293;border-top:0.5pt solid #D1DCE5;padding-top:6pt;margin-top:20pt;}
+.cover + .page-break{page-break-before:always;}
+</style>
+</head>
+<body>
+<div class="Section1">
+
+<div class="cover">
+  <div class="cover-kicker">RightCom Technologies · RightQ</div>
+  <div class="cover-title">Architecture technique</div>
+  <div class="cover-subtitle">RightQ AI Analytics Assistant</div>
+  <div class="cover-rule"></div>
+  <p style="font-size:13pt;color:#D9EEF5;text-align:left;max-width:430pt;">Proposition d’architecture pour un assistant analytique conversationnel intégré, multi-tenant, traçable et sécurisé.</p>
+  <table class="cover-meta">
+    <tr><td>Version</td><td>0.1 — Proposition initiale</td></tr>
+    <tr><td>Statut</td><td>À valider</td></tr>
+    <tr><td>Date</td><td>13 juillet 2026</td></tr>
+    <tr><td>Commanditaire</td><td>RightCom Technologies</td></tr>
+    <tr><td>Produit</td><td>RightQ — SaaS de gestion de files d’attente</td></tr>
+    <tr><td>Équipe</td><td>4 développeurs — 2 Frontend, 2 Backend</td></tr>
+    <tr><td>Lead projet</td><td>Chabel Holdo Bossa</td></tr>
+  </table>
+  <div class="cover-footer">Document de travail · Diffusion contrôlée · Les décisions marquées « à confirmer » dépendent de l’étude de l’existant et des arbitrages de RightCom.</div>
+</div>
+
+<div class="page-break"></div>
+<h1>Contrôle du document</h1>
+<h2>Historique des versions</h2>
+<table>
+<tr><th>Version</th><th>Date</th><th>Auteur</th><th>Objet</th><th>Statut</th></tr>
+<tr><td>0.1</td><td>13/07/2026</td><td>Équipe RightQ AI</td><td>Première proposition d’architecture technique produite au démarrage de la Phase 1.</td><td><span class="status open">À valider</span></td></tr>
+<tr><td>0.2</td><td>À compléter</td><td>Équipe RightQ AI</td><td>Ajustements après accès aux dépôts, aux données, à l’Identity Provider et aux environnements.</td><td><span class="status out">Prévue</span></td></tr>
+<tr><td>1.0</td><td>À compléter</td><td>Équipe / RightCom</td><td>Architecture validée pour réalisation.</td><td><span class="status out">Prévue</span></td></tr>
+</table>
+
+<h2>Approbation attendue</h2>
+<table>
+<tr><th>Rôle</th><th>Nom</th><th>Responsabilité</th><th>Validation</th></tr>
+<tr><td>Commanditaire / Référent</td><td>M. Thomas</td><td>Validation du périmètre, des dépendances et des orientations.</td><td>À compléter</td></tr>
+<tr><td>Lead équipe projet</td><td>Chabel Holdo Bossa</td><td>Cohérence technique, pilotage et consolidation du document.</td><td>Proposé</td></tr>
+<tr><td>Référent technique RightQ</td><td>À confirmer</td><td>Validation de l’intégration à l’existant, des accès et des règles métier.</td><td>À compléter</td></tr>
+</table>
+
+<h2>Légende de décision</h2>
+<table>
+<tr><th>Marqueur</th><th>Signification</th></tr>
+<tr><td><span class="status req">Exigence CdC</span></td><td>Exigence imposée ou explicitement décrite dans le cahier des charges.</td></tr>
+<tr><td><span class="status prop">Proposition équipe</span></td><td>Orientation recommandée à ce stade, à confirmer après étude de l’existant.</td></tr>
+<tr><td><span class="status open">À confirmer</span></td><td>Décision dépendant d’un accès, d’une information ou d’un arbitrage de RightCom.</td></tr>
+<tr><td><span class="status out">Post-MVP</span></td><td>Évolution conservée dans la trajectoire, mais non nécessaire au cœur du MVP.</td></tr>
+</table>
+
+<div class="page-break"></div>
+<h1>Table des matières</h1>
+<table class="toc">
+<tr><td><a href="#resume">1. Résumé exécutif</a></td><td>4</td></tr>
+<tr><td><a href="#contexte">2. Contexte, objectifs et périmètre</a></td><td>5</td></tr>
+<tr><td><a href="#drivers">3. Moteurs et contraintes d’architecture</a></td><td>7</td></tr>
+<tr><td><a href="#hypotheses">4. Hypothèses, dépendances et points ouverts</a></td><td>9</td></tr>
+<tr><td><a href="#principes">5. Principes d’architecture</a></td><td>11</td></tr>
+<tr><td><a href="#globale">6. Architecture globale cible</a></td><td>13</td></tr>
+<tr><td><a href="#frontend">7. Architecture frontend</a></td><td>17</td></tr>
+<tr><td><a href="#backend">8. Architecture backend</a></td><td>19</td></tr>
+<tr><td><a href="#data">9. Architecture des données</a></td><td>23</td></tr>
+<tr><td><a href="#metriques">10. Moteur de métriques déterministe</a></td><td>27</td></tr>
+<tr><td><a href="#ia">11. Intégration IA et Tool Registry</a></td><td>31</td></tr>
+<tr><td><a href="#securite">12. Sécurité et multi-tenancy</a></td><td>35</td></tr>
+<tr><td><a href="#cache">13. Cache et agrégats</a></td><td>39</td></tr>
+<tr><td><a href="#quotas">14. Quotas, entitlements et maîtrise des coûts</a></td><td>42</td></tr>
+<tr><td><a href="#insights">15. Insights, visualisations et exports</a></td><td>45</td></tr>
+<tr><td><a href="#monitoring">16. Monitoring, traçabilité et audit</a></td><td>47</td></tr>
+<tr><td><a href="#performance">17. Performance, résilience et évolutivité</a></td><td>50</td></tr>
+<tr><td><a href="#deploiement">18. Déploiement, environnements et CI/CD</a></td><td>53</td></tr>
+<tr><td><a href="#tests">19. Stratégie de tests et de recette</a></td><td>56</td></tr>
+<tr><td><a href="#roadmap">20. Roadmap technique et organisation</a></td><td>59</td></tr>
+<tr><td><a href="#decisions">21. Décisions, risques et questions ouvertes</a></td><td>62</td></tr>
+<tr><td><a href="#annexes">22. Annexes techniques</a></td><td>67</td></tr>
+</table>
+<p class="small">La pagination est indicative dans cette version Word compatible. Elle sera recalculée lors de la consolidation finale au format DOCX natif.</p>
+
+<div class="page-break"></div>
+<h1 id="resume">1. Résumé exécutif</h1>
+<p>RightQ AI Analytics Assistant est un module conversationnel intégré au produit RightQ. Il permettra aux administrateurs, managers et agents autorisés d’interroger en français ou en anglais les données opérationnelles de files d’attente et d’obtenir des statistiques, comparaisons, insights, rapports, visualisations, prévisions et recommandations.</p>
+<p>L’architecture proposée repose sur une séparation stricte des responsabilités. Le modèle de langage comprend la question, extrait l’intention et formule la réponse. Il ne calcule pas les indicateurs métier. Les nombres proviennent exclusivement d’un moteur analytique déterministe exécuté côté backend sur les données réelles et dans le périmètre autorisé de l’utilisateur.</p>
+
+<table class="cards">
+<tr>
+<td><div class="kpi">100 %</div><div class="kpi-label">Exactitude numérique visée</div></td>
+<td><div class="kpi">0</div><div class="kpi-label">Fuite inter-tenant tolérée</div></td>
+<td><div class="kpi">≤ 5 s</div><div class="kpi-label">Question standard</div></td>
+<td><div class="kpi">≤ 1 s</div><div class="kpi-label">Résultat servi du cache</div></td>
+</tr>
+</table>
+
+<h2>Architecture recommandée</h2>
+<ul>
+<li><b>Frontend :</b> composants React intégrés à l’application RightQ existante : page de conversations, widget persistant, panneau d’insights, visualisations, feedback et indicateur de quota.</li>
+<li><b>Backend :</b> monolithe modulaire NestJS proposé, exposant les API, résolvant le contexte de sécurité, orchestrant le LLM et les outils, gérant les conversations, le cache, les quotas, les exports et le monitoring.</li>
+<li><b>Données métier :</b> accès strictement en lecture seule aux tickets et événements RightQ, de préférence via MongoDB pour les agrégations lourdes, complété par les API RightQ pour l’identité, les rôles et le contexte fonctionnel.</li>
+<li><b>Données du module IA :</b> espace de persistance séparé en lecture-écriture pour les conversations, messages, feedbacks, usages, évaluations, exports et audits.</li>
+<li><b>Cache et tâches :</b> Redis proposé pour les résultats analytiques, les quotas atomiques, les verrous et les traitements asynchrones via BullMQ.</li>
+<li><b>IA :</b> fournisseur abstrait et remplaçable — OpenAI, Azure OpenAI ou modèle open source — utilisant le function calling et des sorties structurées.</li>
+<li><b>Analyses avancées :</b> service Python ou sandbox isolé uniquement si un besoin réel le justifie ; ils ne constituent pas une dépendance du chemin principal du MVP.</li>
+</ul>
+
+<div class="callout">
+<b>Décision structurante.</b> L’architecture protège quatre invariants : les données métier restent en lecture seule ; les droits sont appliqués avant tout traitement IA ; les nombres sont calculés de manière déterministe ; chaque réponse est traçable et auditable.
+</div>
+
+<h2>Choix explicitement non retenus dans le cœur du MVP</h2>
+<p>Une architecture de nombreux microservices, Kafka et un data warehouse ne sont pas introduits par défaut. Ces composants pourront être réévalués après observation des volumes, des usages et de l’infrastructure RightCom. Le MVP privilégie une architecture simple à livrer, testable et évolutive.</p>
+
+<h1 id="contexte">2. Contexte, objectifs et périmètre</h1>
+<h2>2.1 Contexte métier</h2>
+<p>RightQ collecte quotidiennement des tickets, événements de cycle de vie, temps d’attente, temps de traitement, services sollicités, agents, canaux, priorités et taux de no-show. L’exploitation actuelle repose principalement sur des tableaux de bord prédéfinis et des rapports périodiques. Cette organisation limite les explorations ad hoc et ralentit l’accès à une réponse décisionnelle contextualisée.</p>
+
+<h2>2.2 Objectifs</h2>
+<ul>
+<li>Réduire le temps d’accès à l’information analytique de plusieurs heures ou jours à quelques secondes.</li>
+<li>Permettre à un utilisateur non technique de poser une question en langage naturel.</li>
+<li>Produire des réponses chiffrées exactes et contextualisées par période et périmètre.</li>
+<li>Générer des comparaisons, classements, insights, graphiques et rapports exploitables.</li>
+<li>Maîtriser les coûts LLM grâce aux quotas, au cache et à la traçabilité.</li>
+<li>Renforcer RightQ avec une capacité IA nativement intégrée.</li>
+</ul>
+
+<h2>2.3 Utilisateurs et périmètres</h2>
+<table>
+<tr><th>Rôle</th><th>Périmètre de données</th><th>Principe d’autorisation</th></tr>
+<tr><td><span class="tag">rightq_admin</span></td><td>Toutes les smart queues du tenant.</td><td>Filtre obligatoire sur <span class="tag">company</span>.</td></tr>
+<tr><td><span class="tag">rightq_manager</span></td><td>Smart queues dont l’utilisateur est manager.</td><td><span class="tag">company</span> + liste des smart queues managées.</td></tr>
+<tr><td><span class="tag">rightq_agent</span></td><td>Smart queues auxquelles l’agent est affecté.</td><td><span class="tag">company</span> + liste des smart queues assignées.</td></tr>
+</table>
+
+<h2>2.4 Périmètre MVP</h2>
+<table>
+<tr><th>Inclus</th><th>Hors périmètre MVP</th><th>Évolutions possibles</th></tr>
+<tr><td>Chat FR/EN ; page + widget ; contexte conversationnel ; statistiques ; insights ; téléchargements ; historique ; feedback ; auto-évaluation ; quotas ; cache ; monitoring.</td><td>Application mobile native ; écriture sur les tickets ; rapports e-mail planifiés ; alertes push proactives temps réel.</td><td>Alerting proactif ; langues supplémentaires ; prévisions avancées ; tableaux de bord personnalisables ; warehouse transversal.</td></tr>
+</table>
+
+<h2>2.5 Priorisation</h2>
+<p>Les exigences <b>Must</b> constituent le cœur contractuel du MVP. Les <b>Should</b> sont développées après stabilisation des fondations. Les <b>Could</b>, notamment la commande vocale, ne doivent jamais mettre en danger la sécurité, l’exactitude, l’intégration ou le délai.</p>
+
+<h1 id="drivers">3. Moteurs et contraintes d’architecture</h1>
+<h2>3.1 Attributs qualité prioritaires</h2>
+<table>
+<tr><th>Attribut</th><th>Objectif</th><th>Conséquence architecturale</th></tr>
+<tr><td>Sécurité</td><td>Zéro fuite inter-tenant ou hors rôle.</td><td>Périmètre injecté côté backend, cache cloisonné, credentials en moindre privilège.</td></tr>
+<tr><td>Exactitude</td><td>100 % des chiffres vérifiables contre la source.</td><td>Calculs déterministes ; LLM exclu du calcul ; tests croisés et version des métriques.</td></tr>
+<tr><td>Performance</td><td>≤ 5 s standard, ≤ 15 s complexe, ≤ 1 s cache.</td><td>Agrégations côté base, index, cache, streaming, tâches asynchrones.</td></tr>
+<tr><td>Traçabilité</td><td>Expliquer source, périmètre, outils et coûts.</td><td>Run ID, logs structurés, audit, traces et métriques.</td></tr>
+<tr><td>Évolutivité</td><td>Changer de fournisseur LLM sans refonte.</td><td>Ports et adaptateurs, contrats structurés, modules découplés.</td></tr>
+<tr><td>Maîtrise des coûts</td><td>Limiter tokens et calculs répétitifs.</td><td>Quotas hiérarchiques, réservation atomique, cache analytique.</td></tr>
+<tr><td>Utilisabilité</td><td>Usage sans formation par un manager.</td><td>Clarifications, réponses contextualisées, page + widget, erreurs explicites.</td></tr>
+</table>
+
+<h2>3.2 Contraintes technologiques</h2>
+<ul>
+<li><span class="status req">Exigence CdC</span> Frontend React, intégré à RightQ.</li>
+<li><span class="status req">Exigence CdC</span> Backend Node.js ou Python.</li>
+<li><span class="status prop">Proposition équipe</span> NestJS / TypeScript comme cœur backend ; Python réservé aux analyses avancées.</li>
+<li><span class="status req">Exigence CdC</span> Données via MongoDB RightQ ou API RightQ.</li>
+<li><span class="status req">Exigence CdC</span> OpenAI, Azure OpenAI ou modèle open source.</li>
+<li><span class="status req">Exigence CdC</span> Intégration au produit existant, et non application autonome.</li>
+</ul>
+
+<h2>3.3 Scénarios qualité</h2>
+<table>
+<tr><th>ID</th><th>Scénario</th><th>Réponse attendue</th></tr>
+<tr><td>SEC-01</td><td>Deux utilisateurs de tenants différents posent la même question.</td><td>Données, cache, conversations et logs strictement isolés.</td></tr>
+<tr><td>ACC-01</td><td>Un agent demande une smart queue non assignée.</td><td>Refus ou restriction automatique sans fuite d’existence.</td></tr>
+<tr><td>NUM-01</td><td>Le LLM tente d’ajouter un chiffre absent du résultat outil.</td><td>Auto-évaluation en échec ; régénération ou avertissement.</td></tr>
+<tr><td>PERF-01</td><td>Une question historique identique est reposée.</td><td>Cache hit, réponse quasi instantanée et aucune nouvelle agrégation.</td></tr>
+<tr><td>RES-01</td><td>Redis est momentanément indisponible.</td><td>Analyse possible depuis la source, avec journalisation de la dégradation.</td></tr>
+</table>
+
+<h1 id="hypotheses">4. Hypothèses, dépendances et points ouverts</h1>
+<table>
+<tr><th>Élément</th><th>Statut</th><th>Impact / action</th></tr>
+<tr><td>Accès au dépôt frontend RightQ</td><td><span class="status open">En attente</span></td><td>Confirmer le design system, le routage, l’état global et les conventions.</td></tr>
+<tr><td>Accès au backend / API</td><td><span class="status open">En attente</span></td><td>Identifier les contrats d’authentification, rôles, smart queues et calculs existants.</td></tr>
+<tr><td>Accès MongoDB préproduction</td><td><span class="status open">En attente</span></td><td>Valider schémas réels, volumes, index et performances.</td></tr>
+<tr><td>Identity Provider custom</td><td><span class="status open">À étudier</span></td><td>Déterminer les claims disponibles et l’API de contexte utilisateur.</td></tr>
+<tr><td>Redis existant</td><td><span class="status open">À confirmer</span></td><td>Décider hébergement, haute disponibilité, persistance et monitoring.</td></tr>
+<tr><td>Fournisseur LLM</td><td><span class="status open">À confirmer</span></td><td>Adapter le provider, les limites, coûts, régions et règles de confidentialité.</td></tr>
+<tr><td>Fin du temps d’attente</td><td><span class="status open">Arbitrage requis</span></td><td>La section 9.4 retient ATTENDING ; l’annexe mentionne CALLED. La règle normative doit être confirmée.</td></tr>
+<tr><td>Fuseau horaire du tenant</td><td><span class="status open">À confirmer</span></td><td>Indispensable pour les analyses par jour et heure.</td></tr>
+<tr><td>Période « clôturée »</td><td><span class="status open">À définir</span></td><td>Conditionne TTL, invalidation et stabilité des agrégats.</td></tr>
+<tr><td>PDF / XLSX</td><td><span class="status open">Priorité à arbitrer</span></td><td>Marqués Should dans les exigences mais cités dans le livrable final.</td></tr>
+</table>
+
+<div class="callout warning"><b>Limite de la version 0.1.</b> Cette architecture est volontairement explicite sur ses hypothèses. Elle ne prétend pas décrire des dépôts, des index, des services ou des infrastructures non encore observés.</div>
+
+<h1 id="principes">5. Principes d’architecture</h1>
+<table>
+<tr><th>#</th><th>Principe</th><th>Application</th></tr>
+<tr><td>1</td><td>Security by construction</td><td>Le tenant, le rôle et les smart queues sont résolus depuis la session et injectés avant l’IA.</td></tr>
+<tr><td>2</td><td>Least privilege</td><td>Credentials métier en lecture seule ; écriture autorisée uniquement dans l’espace RightQ AI.</td></tr>
+<tr><td>3</td><td>Deterministic numbers</td><td>Le moteur analytique produit les faits ; le LLM ne les modifie pas.</td></tr>
+<tr><td>4</td><td>Policy outside the prompt</td><td>Les contrôles de sécurité, quotas et paramètres outils ne dépendent jamais du texte généré.</td></tr>
+<tr><td>5</td><td>Modular monolith first</td><td>Un déploiement backend principal, découpé en modules et ports testables.</td></tr>
+<tr><td>6</td><td>Adapters for change</td><td>Interfaces pour IdP, données, cache, LLM, stockage et monitoring.</td></tr>
+<tr><td>7</td><td>Cache facts, not trust</td><td>Le cache conserve les résultats analytiques déterministes, jamais un périmètre non vérifié.</td></tr>
+<tr><td>8</td><td>Observable by default</td><td>Chaque run possède une identité, des étapes, un coût, une latence et une source.</td></tr>
+<tr><td>9</td><td>Data minimization</td><td>Seuls les agrégats nécessaires sont transmis au LLM ; PII exclues.</td></tr>
+<tr><td>10</td><td>Progressive complexity</td><td>Pas de Kafka, warehouse ou sandbox dans le chemin principal sans justification mesurée.</td></tr>
+</table>
+
+<h1 id="globale">6. Architecture globale cible</h1>
+<h2>6.1 Diagramme de contexte</h2>
+<table class="diagram">
+<tr>
+<td><div class="box gray">Utilisateur RightQ<br><span class="small">Admin · Manager · Agent</span></div></td>
+<td class="arrow">→</td>
+<td><div class="box primary">RightQ<br><span class="small" style="color:#D8EBF7">Application React + module AI</span></div></td>
+<td class="arrow">↔</td>
+<td><div class="box teal">RightQ AI API<br><span class="small">Orchestration et analyses</span></div></td>
+</tr>
+<tr><td></td><td></td><td class="arrow">↕</td><td></td><td class="arrow">↕</td></tr>
+<tr>
+<td><div class="box gray">Identity Provider<br><span class="small">Identité centralisée</span></div></td>
+<td class="arrow">→</td>
+<td><div class="box amber">API RightQ<br><span class="small">Rôles · smart queues · contexte</span></div></td>
+<td class="arrow">↔</td>
+<td><div class="box gray">MongoDB RightQ<br><span class="small">Tickets · événements · lecture seule</span></div></td>
+</tr>
+<tr><td></td><td></td><td></td><td></td><td class="arrow">↕</td></tr>
+<tr>
+<td><div class="box gray">Observabilité<br><span class="small">Logs · métriques · traces</span></div></td>
+<td class="arrow">←</td>
+<td><div class="box teal">Redis / Workers<br><span class="small">Cache · quotas · jobs</span></div></td>
+<td class="arrow">↔</td>
+<td><div class="box primary">Fournisseur LLM<br><span class="small" style="color:#D8EBF7">Compréhension · formulation</span></div></td>
+</tr>
+</table>
+
+<h2>6.2 Vue en couches</h2>
+<table>
+<tr><th>Couche</th><th>Responsabilités</th><th>Technologie proposée</th></tr>
+<tr><td>Présentation</td><td>Page, widget, insights, graphiques, feedback, quota, monitoring admin.</td><td>React intégré à RightQ.</td></tr>
+<tr><td>API</td><td>Session, contexte utilisateur, endpoints, streaming, validation, quotas.</td><td>NestJS / TypeScript.</td></tr>
+<tr><td>Intelligence</td><td>Interprétation, Tool Registry, moteur déterministe, formulation, évaluation.</td><td>LLM provider + modules backend.</td></tr>
+<tr><td>Cache / asynchrone</td><td>Résultats historiques, compteurs, verrous, exports et tâches longues.</td><td>Redis + BullMQ, à confirmer.</td></tr>
+<tr><td>Données</td><td>Lecture tickets ; persistance conversations, usages, feedbacks et audits.</td><td>MongoDB/API RightQ + base RightQ AI.</td></tr>
+<tr><td>Supervision</td><td>Logs, traces, métriques et console KPI.</td><td>OpenTelemetry / stack RightCom, à confirmer.</td></tr>
+</table>
+
+<h2>6.3 Pattern d’intégration</h2>
+<p>Le backend suit une approche <b>ports et adaptateurs</b>. Les règles métier dépendent d’interfaces stables, et non directement des fournisseurs.</p>
+<div class="code">TicketDataPort          → MongoTicketRepository | RightQApiClient
+IdentityContextPort      → RightQSessionAdapter | IdpUserInfoAdapter
+LlmProviderPort          → OpenAIAdapter | AzureOpenAIAdapter | OSSAdapter
+CachePort                → RedisCacheAdapter
+UsageLedgerPort          → MongoUsageLedgerRepository
+ObjectStoragePort        → Storage existant | S3 compatible
+TelemetryPort            → OpenTelemetryAdapter | Stack RightCom</div>
+
+<h2>6.4 Matrice de choix techniques</h2>
+<table>
+<tr><th>Décision</th><th>Choix proposé</th><th>Justification</th><th>Statut</th></tr>
+<tr><td>Backend</td><td>NestJS modulaire</td><td>Compétences de l’équipe, TypeScript, intégration, DI, guards, Web/SSE.</td><td><span class="status prop">Proposé</span></td></tr>
+<tr><td>Accès analytique</td><td>MongoDB read-only</td><td>Agrégations et ticketEvents sans multiplication d’appels API.</td><td><span class="status open">À confirmer</span></td></tr>
+<tr><td>Contexte fonctionnel</td><td>API RightQ / session</td><td>Éviter le couplage à la base de l’IdP et centraliser l’autorisation.</td><td><span class="status open">À confirmer</span></td></tr>
+<tr><td>Streaming</td><td>SSE par défaut</td><td>Flux serveur → client adapté aux réponses progressives, plus simple que WebSocket.</td><td><span class="status prop">Proposé</span></td></tr>
+<tr><td>Cache / jobs</td><td>Redis + BullMQ</td><td>Cache, quotas atomiques, verrous et workers avec une même brique.</td><td><span class="status open">À confirmer</span></td></tr>
+<tr><td>Kafka</td><td>Non retenu au MVP</td><td>Pas de besoin de replay multi-consommateurs imposé ; alerting temps réel hors périmètre.</td><td><span class="status prop">Proposé</span></td></tr>
+<tr><td>Warehouse</td><td>Non retenu initialement</td><td>Mesurer d’abord volumes, index et charge ; privilégier cache et agrégats.</td><td><span class="status prop">Proposé</span></td></tr>
+</table>
+
+<h1 id="frontend">7. Architecture frontend</h1>
+<h2>7.1 Intégration à RightQ</h2>
+<p>Le frontend n’est pas une application distincte. Il est ajouté au shell RightQ et réutilise son design system, son système de navigation, sa session et ses conventions de développement.</p>
+<table class="diagram">
+<tr><td colspan="5"><div class="box primary">RightQ Application Shell</div></td></tr>
+<tr><td class="arrow">↓</td><td></td><td class="arrow">↓</td><td></td><td class="arrow">↓</td></tr>
+<tr>
+<td><div class="box teal">Page Conversations<br><span class="small">Liste · historique · chat</span></div></td>
+<td></td>
+<td><div class="box teal">Widget persistant<br><span class="small">Conversation compacte</span></div></td>
+<td></td>
+<td><div class="box amber">Console admin<br><span class="small">Monitoring et qualité</span></div></td>
+</tr>
+<tr><td colspan="5" class="arrow">↓</td></tr>
+<tr><td colspan="5"><div class="box gray">État partagé AI : conversation active · messages · brouillon · run · quota</div></td></tr>
+</table>
+
+<h2>7.2 Composants principaux</h2>
+<table>
+<tr><th>Composant</th><th>Responsabilité</th></tr>
+<tr><td>ConversationList</td><td>Lister les conversations actives et archivées, créer, renommer, archiver ou supprimer.</td></tr>
+<tr><td>ConversationView</td><td>Afficher les messages et piloter l’envoi, le streaming et les clarifications.</td></tr>
+<tr><td>MessageRenderer</td><td>Rendre texte, KPI, tableaux, graphiques, avertissements et sources de périmètre.</td></tr>
+<tr><td>PersistentAIWidget</td><td>Reprendre la conversation active pendant la navigation sans perte de brouillon.</td></tr>
+<tr><td>InsightPanel</td><td>Présenter les variations significatives du périmètre courant.</td></tr>
+<tr><td>QuotaIndicator</td><td>Afficher l’usage, le solde et la prochaine réinitialisation selon la politique validée.</td></tr>
+<tr><td>FeedbackControl</td><td>Pouce haut/bas et commentaire optionnel, liés à la réponse et au run.</td></tr>
+<tr><td>ArtifactRenderer</td><td>Prévisualiser et télécharger PNG, CSV, PDF ou XLSX selon la priorité.</td></tr>
+</table>
+
+<h2>7.3 Continuité page ↔ widget</h2>
+<ol>
+<li>La page et le widget référencent le même <span class="tag">conversationId</span>.</li>
+<li>Les messages persistés sont rechargés depuis l’API ; le brouillon temporaire reste dans l’état partagé.</li>
+<li>Un run en streaming reste visible après changement de route.</li>
+<li>L’autorisation est revérifiée côté backend à chaque appel ; l’état frontend n’est jamais une preuve d’accès.</li>
+</ol>
+
+<h2>7.4 Communication</h2>
+<ul>
+<li><b>REST :</b> conversations, messages, feedbacks, quotas, exports et monitoring.</li>
+<li><b>SSE proposé :</b> événements progressifs de run et fragments de réponse.</li>
+<li><b>WebSocket :</b> seulement si l’infrastructure RightQ le standardise déjà ou si une interaction bidirectionnelle temps réel devient nécessaire.</li>
+</ul>
+
+<h1 id="backend">8. Architecture backend</h1>
+<h2>8.1 Monolithe modulaire</h2>
+<p>Le MVP est construit comme un backend déployable unique, organisé en modules cohérents. Ce choix réduit le coût opérationnel tout en conservant des limites internes permettant une extraction future.</p>
+<table>
+<tr><th>Module</th><th>Responsabilité</th><th>Dépendances principales</th></tr>
+<tr><td>IdentityModule</td><td>Valider la session et produire l’identité stable.</td><td>IdP / session RightQ.</td></tr>
+<tr><td>AuthorizationModule</td><td>Résoudre tenant, rôle, smart queues et permissions.</td><td>API RightQ / claims.</td></tr>
+<tr><td>ConversationModule</td><td>Historique, limites, archivage, suppression et continuité.</td><td>Base RightQ AI.</td></tr>
+<tr><td>AgentModule</td><td>Planifier l’exécution, appeler outils et LLM, gérer le contexte.</td><td>LLM, Tool Registry, cache.</td></tr>
+<tr><td>ToolRegistryModule</td><td>Déclarer et valider les fonctions analytiques autorisées.</td><td>AnalyticsModule.</td></tr>
+<tr><td>AnalyticsModule</td><td>Calculer les métriques sur données réelles.</td><td>TicketDataPort.</td></tr>
+<tr><td>CacheModule</td><td>Clés, TTL, invalidation, verrouillage et statistiques.</td><td>Redis.</td></tr>
+<tr><td>QuotaModule</td><td>Résoudre la politique, vérifier, réserver et réconcilier.</td><td>Redis, UsageModule.</td></tr>
+<tr><td>UsageModule</td><td>Historiser tokens, requêtes, exports et coûts.</td><td>Usage ledger.</td></tr>
+<tr><td>EvaluationModule</td><td>Contrôler cohérence, chiffres autorisés et complétude.</td><td>LLM + résultat outil.</td></tr>
+<tr><td>ExportModule</td><td>Générer et sécuriser PNG, CSV, PDF, XLSX.</td><td>Workers, stockage objet.</td></tr>
+<tr><td>MonitoringModule</td><td>Exposer KPI, processus en cours et historiques.</td><td>Logs, traces, base AI.</td></tr>
+<tr><td>AuditModule</td><td>Journaliser périmètre, requête, source et décision.</td><td>Base / stack observabilité.</td></tr>
+</table>
+
+<h2>8.2 Cycle d’une question</h2>
+<table class="diagram">
+<tr><td><div class="box gray">1. Question</div></td><td class="arrow">→</td><td><div class="box teal">2. Auth + Scope</div></td><td class="arrow">→</td><td><div class="box amber">3. Quota</div></td></tr>
+<tr><td colspan="5" class="arrow">↓</td></tr>
+<tr><td><div class="box primary">6. Analytics</div></td><td class="arrow">←</td><td><div class="box teal">5. Cache / Tool</div></td><td class="arrow">←</td><td><div class="box gray">4. Interprétation LLM</div></td></tr>
+<tr><td colspan="5" class="arrow">↓</td></tr>
+<tr><td><div class="box gray">7. Faits JSON</div></td><td class="arrow">→</td><td><div class="box teal">8. Formulation</div></td><td class="arrow">→</td><td><div class="box amber">9. Évaluation</div></td></tr>
+<tr><td colspan="5" class="arrow">↓</td></tr>
+<tr><td colspan="5"><div class="box primary">10. Streaming + persistance + audit + réconciliation du quota</div></td></tr>
+</table>
+
+<h2>8.3 API indicative</h2>
+<table>
+<tr><th>Méthode</th><th>Endpoint</th><th>Objet</th></tr>
+<tr><td>POST</td><td><span class="tag">/ai/conversations</span></td><td>Créer une conversation après contrôle du plafond actif.</td></tr>
+<tr><td>GET</td><td><span class="tag">/ai/conversations</span></td><td>Lister les conversations du sujet dans le tenant courant.</td></tr>
+<tr><td>POST</td><td><span class="tag">/ai/conversations/:id/messages</span></td><td>Démarrer une question et retourner un run.</td></tr>
+<tr><td>GET</td><td><span class="tag">/ai/runs/:runId/events</span></td><td>Flux SSE du traitement.</td></tr>
+<tr><td>POST</td><td><span class="tag">/ai/messages/:id/feedback</span></td><td>Enregistrer le feedback.</td></tr>
+<tr><td>GET</td><td><span class="tag">/ai/quota</span></td><td>Obtenir l’usage et le prochain reset.</td></tr>
+<tr><td>POST</td><td><span class="tag">/ai/exports</span></td><td>Créer un export asynchrone.</td></tr>
+<tr><td>GET</td><td><span class="tag">/ai/admin/monitoring</span></td><td>KPI agrégés, accès administrateur.</td></tr>
+</table>
+<p class="small">Les routes définitives doivent s’aligner sur les conventions du backend RightQ existant.</p>
+
+<h1 id="data">9. Architecture des données</h1>
+<h2>9.1 Séparation des domaines</h2>
+<table class="diagram">
+<tr>
+<td><div class="box primary">MongoDB RightQ<br><span class="small" style="color:#D8EBF7">Tickets et événements<br>READ ONLY</span></div></td>
+<td class="arrow">≠</td>
+<td><div class="box teal">Base RightQ AI<br><span class="small">Conversations · usages · audit<br>READ / WRITE</span></div></td>
+<td class="arrow">≠</td>
+<td><div class="box amber">Redis<br><span class="small">Cache · compteurs · jobs<br>Temporaire</span></div></td>
+</tr>
+</table>
+
+<h2>9.2 Source métier</h2>
+<p>Le ticket est la source analytique principale. Les requêtes utilisent notamment <span class="tag">company</span>, <span class="tag">statusUpdatedAt</span>, <span class="tag">smartQueue</span>, <span class="tag">service</span>, <span class="tag">agent</span>, <span class="tag">status</span>, <span class="tag">ticketEvents</span> et <span class="tag">calcul</span>.</p>
+<p>Les credentials de lecture doivent empêcher toute opération d’écriture sur les collections opérationnelles. Les commentaires et les données <span class="tag">customer.*</span> ne sont pas requis pour les agrégations et ne sont jamais envoyés au LLM.</p>
+
+<h2>9.3 Collections du module IA proposées</h2>
+<table>
+<tr><th>Collection</th><th>Contenu</th><th>Index indicatif</th></tr>
+<tr><td>ai_conversations</td><td>Titre, statut actif/archivé, propriétaire, dernière activité.</td><td>company + subjectId + status + updatedAt</td></tr>
+<tr><td>ai_messages</td><td>Messages utilisateur, réponses, contenu structuré, run associé.</td><td>company + conversationId + createdAt</td></tr>
+<tr><td>ai_runs</td><td>État d’exécution, modèle, latence, statut, erreurs.</td><td>company + createdAt ; status + createdAt</td></tr>
+<tr><td>ai_tool_executions</td><td>Outil, paramètres normalisés, scope hash, source et durée.</td><td>runId ; company + toolName + createdAt</td></tr>
+<tr><td>ai_feedbacks</td><td>Vote, commentaire, message, utilisateur et évaluation liée.</td><td>company + createdAt ; messageId</td></tr>
+<tr><td>ai_evaluations</td><td>Scores, règles échouées, régénération, avertissement.</td><td>runId ; company + score + createdAt</td></tr>
+<tr><td>ai_quota_policies</td><td>Limites par plan, tenant, rôle, utilisateur ou fonctionnalité.</td><td>productCode + scopeType + scopeId</td></tr>
+<tr><td>ai_usage_ledger</td><td>Entrées append-only de consommation et coûts.</td><td>company + subjectId + occurredAt</td></tr>
+<tr><td>ai_exports</td><td>Type, statut, sélection, emplacement sécurisé, expiration.</td><td>company + subjectId + createdAt</td></tr>
+<tr><td>ai_audit_logs</td><td>Périmètre, décision d’accès, cache/base, paramètres hachés.</td><td>company + createdAt ; runId</td></tr>
+</table>
+
+<h2>9.4 Identifiants obligatoires</h2>
+<div class="code">company        Identifiant du tenant — obligatoire partout
+subjectId      Identifiant stable issu de l’Identity Provider
+conversationId Identifiant de la conversation
+runId          Corrélation de bout en bout d’une exécution
+scopeHash      Empreinte du rôle et des smart queues autorisées
+metricVersion  Version des règles de calcul
+createdAt      Horodatage UTC
+</div>
+
+<h2>9.5 Index analytiques candidats</h2>
+<p>Les index seront décidés après analyse des requêtes et de l’existant. Les candidats incluent des compositions commençant par <span class="tag">company</span> puis <span class="tag">statusUpdatedAt</span>, complétées selon les filtres fréquents : smart queue, service, agent, statut et canal.</p>
+<div class="callout info"><b>Règle.</b> Aucun index ne doit être créé uniquement sur intuition. Chaque proposition sera associée à une requête réelle, un plan d’exécution, une volumétrie et une mesure avant/après.</div>
+
+<h1 id="metriques">10. Moteur de métriques déterministe</h1>
+<h2>10.1 Responsabilité</h2>
+<p>Le moteur analytique est la seule source autorisée des chiffres métier affichés. Il expose des fonctions typées et versionnées. Le LLM ne peut ni fournir une requête MongoDB libre, ni modifier les valeurs retournées.</p>
+
+<h2>10.2 Sélection d’une période</h2>
+<p><span class="status req">Exigence CdC</span> Les tickets d’une période sont sélectionnés via <span class="tag">statusUpdatedAt</span>, et non <span class="tag">createdAt</span>. Les analyses journalières et horaires convertissent les timestamps UTC dans le fuseau du tenant.</p>
+
+<h2>10.3 Calcul des temps</h2>
+<table>
+<tr><th>Cas</th><th>Source</th><th>Règle</th></tr>
+<tr><td>Statut CLOSED ou NOSHOW</td><td><span class="tag">calcul.waitingTime</span> et <span class="tag">calcul.handlingTime</span></td><td>Lecture directe ; aucun recalcul.</td></tr>
+<tr><td>Statut non définitif</td><td><span class="tag">ticketEvents</span></td><td>Reconstruction déterministe selon l’ordre des événements.</td></tr>
+</table>
+
+<div class="code">waitingTime = Σ(CREATED → ATTENDING suivant)
+            + Σ(ONHOLD → ATTENDING suivant)
+
+handlingTime = Σ(ATTENDING → ONHOLD suivant)
+             + Σ(ATTENDING → CLOSED/NOSHOW suivant)
+
+CALLED et RECALLED ne ferment pas les intervalles selon la section 9.4.
+Les cycles ONHOLD ↔ ATTENDING peuvent être répétés sans limite.</div>
+
+<h2>10.4 Segments ouverts</h2>
+<p>Pour un ticket non définitif dont le dernier segment reste ouvert, l’instant de l’analyse peut servir de borne temporaire. La convention doit être explicite par métrique : inclusion, exclusion ou signalement « en cours ». Cette convention doit être confirmée et versionnée.</p>
+
+<h2>10.5 Autres métriques</h2>
+<ul>
+<li><b>No-show :</b> nombre de tickets NOSHOW / nombre de tickets appelés sur la période.</li>
+<li><b>Heures de pointe :</b> distribution des événements CREATED dans le fuseau du tenant.</li>
+<li><b>Volumes :</b> comptages par période, smart queue, service, canal, priorité ou agent.</li>
+<li><b>Comparaison :</b> écart absolu, variation relative et convention lorsque la référence vaut zéro.</li>
+<li><b>Insights :</b> règles de significativité sur des résultats déterministes.</li>
+</ul>
+
+<h2>10.6 Tool Registry initial</h2>
+<table>
+<tr><th>Fonction</th><th>Paramètres</th><th>Sortie déterministe</th></tr>
+<tr><td>getAverageWaitingTime</td><td>Période, smart queues, service, agent</td><td>Valeur, unité, taille d’échantillon, période.</td></tr>
+<tr><td>getAverageHandlingTime</td><td>Période et filtres autorisés</td><td>Moyenne et distribution utile.</td></tr>
+<tr><td>getTicketVolume</td><td>Période, regroupement</td><td>Séries et totaux.</td></tr>
+<tr><td>getNoShowRate</td><td>Période et périmètre</td><td>Numérateur, dénominateur et taux.</td></tr>
+<tr><td>getPeakHours</td><td>Période, granularité, fuseau</td><td>Tranches ordonnées et volumes.</td></tr>
+<tr><td>rankServices</td><td>Métrique, période, limite</td><td>Classement stable et valeurs.</td></tr>
+<tr><td>rankAgents</td><td>Métrique, période, limite</td><td>Classement dans le scope autorisé.</td></tr>
+<tr><td>comparePeriods</td><td>Période A, période B, métrique</td><td>Valeurs, écart, variation, interprétation brute.</td></tr>
+<tr><td>detectSignificantVariations</td><td>Périodes, métriques, seuils</td><td>Liste d’insights structurés.</td></tr>
+</table>
+
+<h2>10.7 Version et reproductibilité</h2>
+<p>Chaque résultat inclut <span class="tag">metricVersion</span>, la période exacte, le fuseau, les filtres, la taille d’échantillon et l’instant de calcul. Une évolution de règle produit une nouvelle version et ne réutilise pas un cache d’une version antérieure.</p>
+
+<h1 id="ia">11. Intégration IA et Tool Registry</h1>
+<h2>11.1 Rôle du LLM</h2>
+<table>
+<tr><th>Autorisé</th><th>Interdit</th></tr>
+<tr><td>Comprendre l’intention ; extraire la période ; proposer une clarification ; sélectionner un outil ; formuler les faits ; résumer les limites.</td><td>Inventer un chiffre ; écrire une requête libre ; choisir un tenant ; étendre le scope ; recevoir des PII ; modifier les données métier.</td></tr>
+</table>
+
+<h2>11.2 Pipeline IA</h2>
+<ol>
+<li>Normaliser la question et charger le contexte conversationnel utile.</li>
+<li>Produire un <span class="tag">AnalysisIntent</span> structuré : métrique, période, filtres et besoin de clarification.</li>
+<li>Faire sélectionner au LLM une fonction déclarée dans le Tool Registry.</li>
+<li>Valider les paramètres côté backend et remplacer tout scope demandé par le scope autorisé.</li>
+<li>Exécuter l’outil ou utiliser le résultat analytique mis en cache.</li>
+<li>Transmettre au LLM uniquement les faits agrégés nécessaires.</li>
+<li>Générer une réponse avec période, périmètre, chiffres et limites.</li>
+<li>Auto-évaluer la cohérence et l’origine des nombres.</li>
+<li>Régénérer au maximum une fois ou ajouter un avertissement explicite.</li>
+</ol>
+
+<h2>11.3 Contrat de résultat</h2>
+<div class="code">{
+  "tool": "comparePeriods",
+  "metricVersion": "waiting-time-v1",
+  "scope": { "company": "...", "smartQueues": ["..."] },
+  "periods": [{ "from": "...", "to": "...", "timezone": "..." }],
+  "facts": {
+    "current": 610.62,
+    "previous": 520.15,
+    "unit": "seconds",
+    "variationPercent": 17.39,
+    "sampleSize": 428
+  },
+  "source": "cache|mongodb|api",
+  "computedAt": "..."
+}</div>
+
+<h2>11.4 Auto-évaluation</h2>
+<table>
+<tr><th>Contrôle</th><th>Technique</th><th>Réaction</th></tr>
+<tr><td>Chiffres autorisés</td><td>Comparer les nombres de la réponse aux faits du résultat.</td><td>Régénération si un nombre non sourcé apparaît.</td></tr>
+<tr><td>Période</td><td>Vérifier qu’elle est explicitement mentionnée.</td><td>Compléter ou avertir.</td></tr>
+<tr><td>Périmètre</td><td>Vérifier tenant/smart queues dans les métadonnées.</td><td>Bloquer en cas d’incohérence.</td></tr>
+<tr><td>Complétude</td><td>Comparer question, outil et réponse.</td><td>Clarification ou réponse partielle signalée.</td></tr>
+<tr><td>Confiance</td><td>Score et règles déterministes + éventuel juge LLM.</td><td>Persisté pour monitoring et corrélation feedback.</td></tr>
+</table>
+
+<h2>11.5 Provider abstrait</h2>
+<div class="code">interface LlmProvider {
+  interpretQuestion(input: InterpretInput): Promise&lt;AnalysisIntent&gt;;
+  generateAnswer(input: AnswerInput): Promise&lt;GeneratedAnswer&gt;;
+  evaluateAnswer(input: EvaluationInput): Promise&lt;EvaluationResult&gt;;
+}</div>
+<p>Les prompts, modèles, températures, schémas outils et versions sont configurables et journalisés. Les secrets restent hors du code.</p>
+
+<h1 id="securite">12. Sécurité et multi-tenancy</h1>
+<h2>12.1 Construction du contexte autorisé</h2>
+<table class="diagram">
+<tr><td><div class="box gray">Session / JWT</div></td><td class="arrow">→</td><td><div class="box teal">subjectId</div></td><td class="arrow">→</td><td><div class="box amber">Tenant + rôle + smart queues</div></td></tr>
+<tr><td colspan="5" class="arrow">↓</td></tr>
+<tr><td colspan="5"><div class="box primary">AuthorizedScope injecté dans requêtes, cache, conversations, exports et audit</div></td></tr>
+</table>
+
+<div class="code">type AuthorizedScope = {
+  subjectId: string;
+  company: string;
+  role: "rightq_admin" | "rightq_manager" | "rightq_agent";
+  smartQueueIds: string[];
+  scopeHash: string;
+};</div>
+
+<h2>12.2 Contrôles obligatoires</h2>
+<ul>
+<li>Le frontend ne fournit jamais un tenant de confiance.</li>
+<li>Le LLM ne choisit jamais le périmètre d’accès.</li>
+<li>Toute requête métier reçoit <span class="tag">company</span> depuis le contexte backend.</li>
+<li>Les smart queues sont intersectées avec la liste autorisée.</li>
+<li>Chaque document RightQ AI contient le tenant.</li>
+<li>Les clés de cache incluent le tenant et le scope hash.</li>
+<li>Un export revérifie les droits au moment de sa création et de son téléchargement.</li>
+<li>Les logs ne contiennent ni prompt sensible complet ni PII client.</li>
+</ul>
+
+<h2>12.3 Menaces principales</h2>
+<table>
+<tr><th>Menace</th><th>Mesure de réduction</th></tr>
+<tr><td>Fuite inter-tenant</td><td>Guards backend, repository scoped, tests négatifs, cache partitionné.</td></tr>
+<tr><td>Prompt injection</td><td>Liste fermée d’outils, validation de paramètres, lecture seule et aucune commande libre.</td></tr>
+<tr><td>IDOR sur conversation/export</td><td>Recherche systématique par ID + company + subjectId/permission.</td></tr>
+<tr><td>Exfiltration PII</td><td>Projection de champs, agrégation avant LLM, filtres et tests de contenu.</td></tr>
+<tr><td>Requête coûteuse / DoS</td><td>Plafond de période, quotas, timeouts, limites de concurrence et cache.</td></tr>
+<tr><td>Fuite de secrets</td><td>Secret manager ou variables sécurisées, rotation, aucun secret dans Git.</td></tr>
+<tr><td>Écriture accidentelle</td><td>Compte MongoDB read-only et séparation logique/physique de la persistance AI.</td></tr>
+</table>
+
+<h2>12.4 Sandbox analytique optionnel</h2>
+<p>Un sandbox Python peut être ajouté postérieurement pour des analyses ad hoc. Il reçoit un dataset anonymisé et déjà filtré, n’a aucun credential, aucun accès réseau, fonctionne en non-root et avec des limites strictes. Il ne remplace pas les outils officiels.</p>
+
+<h1 id="cache">13. Cache et agrégats</h1>
+<h2>13.1 Objet du cache</h2>
+<p>Le cache conserve prioritairement les résultats analytiques déterministes. Le texte final LLM peut être mis en cache uniquement dans des cas simples et non conversationnels ; il ne constitue pas la source de vérité.</p>
+
+<h2>13.2 Clé conceptuelle</h2>
+<div class="code">rightq-ai:{metricVersion}:{company}:{role}:{scopeHash}:
+          {tool}:{periodHash}:{timezone}:{paramsHash}:{dataRevision}</div>
+
+<h2>13.3 Politique de TTL proposée</h2>
+<table>
+<tr><th>Période</th><th>TTL initial</th><th>Raison</th></tr>
+<tr><td>File actuelle / temps quasi réel</td><td>15 à 30 secondes</td><td>Forte volatilité.</td></tr>
+<tr><td>Journée courante</td><td>30 à 60 secondes</td><td>Équilibre fraîcheur / charge.</td></tr>
+<tr><td>Semaine courante</td><td>2 à 5 minutes</td><td>Variations moins rapides.</td></tr>
+<tr><td>Mois courant</td><td>5 à 15 minutes</td><td>Analyse consolidée mais non clôturée.</td></tr>
+<tr><td>Journée révolue récente</td><td>6 à 24 heures</td><td>Possible correction tardive.</td></tr>
+<tr><td>Semaine ou mois clôturé</td><td>1 à 30 jours</td><td>Donnée historiquement stable.</td></tr>
+</table>
+<p class="small">Ces valeurs sont des paramètres de départ. Elles seront ajustées à partir des usages et de la définition métier d’une période clôturée.</p>
+
+<h2>13.4 Invalidation et cohérence</h2>
+<ul>
+<li><b>MVP :</b> TTL différencié + version de métrique + invalidation administrative ciblée.</li>
+<li><b>Option :</b> MongoDB Change Streams ou événements RightQ pour invalider company, smart queue et période affectées.</li>
+<li><b>Anti-stampede :</b> verrou court par clé et exécution single-flight.</li>
+<li><b>Stale-while-revalidate :</b> possible pour les périodes historiquement stables.</li>
+<li><b>Défaillance Redis :</b> lecture source autorisée, journalisation de la dégradation ; les quotas appliquent la politique de sécurité validée.</li>
+</ul>
+
+<h2>13.5 Data warehouse</h2>
+<p>Le warehouse n’est pas une dépendance du MVP. L’équipe mesurera la latence, le nombre de documents examinés et l’impact sur MongoDB. Des collections d’agrégats précalculés pourront être introduites avant un data mart ou un warehouse complet.</p>
+
+<h1 id="quotas">14. Quotas, entitlements et maîtrise des coûts</h1>
+<h2>14.1 Séparation des responsabilités</h2>
+<table>
+<tr><th>Système</th><th>Responsabilité</th></tr>
+<tr><td>Identity Provider</td><td>Identifier l’utilisateur via un subject stable.</td></tr>
+<tr><td>RightQ Authorization</td><td>Fournir tenant, rôle et smart queues.</td></tr>
+<tr><td>Entitlement Resolver</td><td>Déterminer plan et fonctionnalités activées.</td></tr>
+<tr><td>Quota Service</td><td>Résoudre les limites et contrôler la consommation.</td></tr>
+<tr><td>Usage Ledger</td><td>Historiser de manière durable et auditable.</td></tr>
+<tr><td>Redis</td><td>Compteurs atomiques et réservations à faible latence.</td></tr>
+</table>
+
+<h2>14.2 Flux de réservation</h2>
+<table class="diagram">
+<tr><td><div class="box gray">Estimer le coût maximal</div></td><td class="arrow">→</td><td><div class="box amber">Réserver atomiquement</div></td><td class="arrow">→</td><td><div class="box teal">Exécuter LLM</div></td></tr>
+<tr><td colspan="5" class="arrow">↓</td></tr>
+<tr><td><div class="box gray">Écrire le ledger</div></td><td class="arrow">←</td><td><div class="box primary">Réconcilier le réel</div></td><td class="arrow">←</td><td><div class="box amber">Lire les tokens réels</div></td></tr>
+</table>
+
+<h2>14.3 Dimensions de quota</h2>
+<ul>
+<li>Tokens d’entrée, de sortie et totaux.</li>
+<li>Nombre de requêtes.</li>
+<li>Conversations actives.</li>
+<li>Exports, prévisions ou exécutions sandbox.</li>
+<li>Niveau utilisateur et niveau tenant vérifiés simultanément.</li>
+<li>Fenêtres heure/jour imposées par le CdC ; paramètres configurables par tenant.</li>
+</ul>
+
+<h2>14.4 Modèle de crédits mensuels</h2>
+<p><span class="status prop">Proposition équipe</span> Présenter à l’utilisateur un solde mensuel simple, lié à l’abonnement, tout en conservant en arrière-plan les limites horaires ou journalières contre les abus. La tarification par catégorie d’opération doit rester configurable et ne sera finalisée qu’après connaissance du modèle commercial RightCom.</p>
+
+<h2>14.5 Persistance</h2>
+<p>Ne pas mélanger politique, compteurs et historique dans un seul document. Séparer au minimum :</p>
+<ul>
+<li><span class="tag">ai_quota_policies</span> — règles du plan ;</li>
+<li><span class="tag">ai_tenant_quota_overrides</span> — adaptations contractuelles ;</li>
+<li>compteurs Redis — usage courant atomique ;</li>
+<li><span class="tag">ai_usage_ledger</span> — historique append-only ;</li>
+<li>snapshots agrégés — accélération du monitoring.</li>
+</ul>
+
+<h1 id="insights">15. Insights, visualisations et exports</h1>
+<h2>15.1 Insights</h2>
+<p>Les insights sont calculés à partir de comparaisons déterministes. La proposition UX est un panneau dédié chargé à l’ouverture de la page pertinente, avec injection dans la conversation lorsque l’insight répond directement au contexte. Les alertes permanentes sur toutes les pages sont exclues du MVP afin de ne pas introduire un alerting proactif temps réel.</p>
+
+<h2>15.2 Visualisations</h2>
+<p>Le backend retourne des spécifications et données structurées ; le frontend réalise l’affichage interactif. Chaque artefact conserve la métrique, la période, le périmètre, l’unité et la version de calcul.</p>
+<table>
+<tr><th>Type</th><th>Usage</th><th>Téléchargement minimal</th></tr>
+<tr><td>Courbe</td><td>Évolution temporelle</td><td>PNG</td></tr>
+<tr><td>Histogramme</td><td>Comparaison de volumes ou agents</td><td>PNG</td></tr>
+<tr><td>Diagramme circulaire</td><td>Répartition simple et limitée</td><td>PNG</td></tr>
+<tr><td>Tableau</td><td>Classements et données détaillées</td><td>CSV</td></tr>
+<tr><td>Rapport</td><td>Synthèse structurée</td><td>PDF / XLSX selon validation</td></tr>
+</table>
+
+<h2>15.3 Exports</h2>
+<ul>
+<li>Les exports lourds sont exécutés en worker.</li>
+<li>La sélection d’artefacts particuliers est une amélioration proposée, sous réserve du planning.</li>
+<li>L’accès est revérifié au téléchargement.</li>
+<li>Les fichiers ont une durée de rétention et une URL signée ou un endpoint autorisé.</li>
+<li>Le fichier contient la période, le périmètre et la date de génération.</li>
+</ul>
+
+<h1 id="monitoring">16. Monitoring, traçabilité et audit</h1>
+<h2>16.1 Corrélation</h2>
+<p>Chaque question produit un <span class="tag">runId</span> partagé par l’API, les outils, le cache, les appels LLM, l’évaluation, la réponse et les logs. Les traces permettent de reconstruire le chemin d’une réponse sans exposer les données sensibles.</p>
+
+<h2>16.2 Données de run</h2>
+<div class="code">runId · company · subjectId · conversationId · role · scopeHash
+questionIntent · toolName · paramsHash · metricVersion
+dataSource(cache|mongodb|api) · cacheStatus · model · tokenUsage
+latencyTotal · latencyTool · evaluationScore · status · errorCode</div>
+
+<h2>16.3 KPI de la console</h2>
+<table>
+<tr><th>Famille</th><th>Indicateurs</th></tr>
+<tr><td>Compréhension</td><td>Taux de succès, clarifications, intentions non couvertes.</td></tr>
+<tr><td>Qualité</td><td>Feedback positif/négatif, scores d’évaluation, régénérations.</td></tr>
+<tr><td>Coûts</td><td>Tokens par tenant, utilisateur, modèle et période ; dépassements.</td></tr>
+<tr><td>Cache</td><td>Hits, misses, latence, volume et erreurs.</td></tr>
+<tr><td>Performance</td><td>Médiane, p95, temps outil, temps LLM, temps export.</td></tr>
+<tr><td>Volumes</td><td>Conversations, messages, runs, outils et exports.</td></tr>
+<tr><td>Fiabilité</td><td>Erreurs techniques, timeouts, retries, jobs en échec.</td></tr>
+</table>
+
+<h2>16.4 Stack</h2>
+<p><span class="status prop">Proposition équipe</span> Instrumentation OpenTelemetry et intégration à la stack existante de RightCom. En l’absence de stack, un socle minimal comprendra logs JSON, métriques applicatives, traces distribuées et dashboards administrateurs.</p>
+
+<h1 id="performance">17. Performance, résilience et évolutivité</h1>
+<h2>17.1 Budget de latence indicatif</h2>
+<table>
+<tr><th>Étape</th><th>Cible indicative</th></tr>
+<tr><td>Session, scope et quota</td><td>&lt; 250 ms</td></tr>
+<tr><td>Cache lookup</td><td>&lt; 100 ms</td></tr>
+<tr><td>Agrégation standard</td><td>&lt; 1 500 ms</td></tr>
+<tr><td>Interprétation + formulation LLM</td><td>Variable, avec streaming rapide</td></tr>
+<tr><td>Réponse standard totale</td><td>≤ 5 s</td></tr>
+<tr><td>Analyse complexe</td><td>≤ 15 s ou bascule en job explicite</td></tr>
+</table>
+
+<h2>17.2 Stratégies</h2>
+<ul>
+<li>Agrégations côté MongoDB et projections minimales.</li>
+<li>Index validés par plans d’exécution.</li>
+<li>Limitation configurable des périodes et de la granularité.</li>
+<li>Pagination et échantillonnage uniquement lorsqu’ils sont métierment acceptables.</li>
+<li>Cache historique et agrégats précalculés si nécessaire.</li>
+<li>Timeouts, retries bornés et circuit breaker vers les fournisseurs externes.</li>
+<li>Workers pour PDF/XLSX, rapports lourds et analyses avancées.</li>
+<li>Idempotence des jobs et dead-letter queue BullMQ.</li>
+<li>Dégradation : réponse structurée sans LLM possible pour certains KPI simples.</li>
+</ul>
+
+<h2>17.3 Scalabilité</h2>
+<p>L’API doit rester stateless hors Redis et base afin de permettre plusieurs réplicas. Les workers peuvent être dimensionnés séparément. La charge LLM, analytique et export est mesurée par tenant pour éviter qu’un client ne dégrade l’ensemble du SaaS.</p>
+
+<h1 id="deploiement">18. Déploiement, environnements et CI/CD</h1>
+<h2>18.1 Diagramme logique de déploiement</h2>
+<table class="diagram">
+<tr><td colspan="5"><div class="box primary">Environnement RightCom — Développement / Préproduction / Production</div></td></tr>
+<tr><td class="arrow">↓</td><td></td><td class="arrow">↓</td><td></td><td class="arrow">↓</td></tr>
+<tr>
+<td><div class="box teal">RightQ Frontend<br><span class="small">React + module AI</span></div></td>
+<td></td>
+<td><div class="box teal">RightQ AI API<br><span class="small">NestJS · replicas</span></div></td>
+<td></td>
+<td><div class="box amber">Workers<br><span class="small">Exports · jobs</span></div></td>
+</tr>
+<tr><td colspan="5" class="arrow">↓</td></tr>
+<tr>
+<td><div class="box gray">MongoDB RightQ<br><span class="small">Read only</span></div></td>
+<td><div class="box gray">Base RightQ AI<br><span class="small">Read/write</span></div></td>
+<td><div class="box gray">Redis<br><span class="small">Cache/queue</span></div></td>
+<td><div class="box gray">Object storage<br><span class="small">Exports</span></div></td>
+<td><div class="box gray">LLM + Observabilité</div></td>
+</tr>
+</table>
+
+<h2>18.2 Environnements</h2>
+<table>
+<tr><th>Environnement</th><th>Données</th><th>Objectif</th></tr>
+<tr><td>Local</td><td>Fixtures synthétiques anonymisées</td><td>Développement et tests unitaires.</td></tr>
+<tr><td>Développement partagé</td><td>Jeu contrôlé / services simulés</td><td>Intégration équipe.</td></tr>
+<tr><td>Préproduction</td><td>Données représentatives et accès sécurisés</td><td>Tests de performance, sécurité et recette.</td></tr>
+<tr><td>Production</td><td>Données réelles, moindre privilège</td><td>Service opérationnel.</td></tr>
+</table>
+
+<h2>18.3 CI/CD</h2>
+<ul>
+<li>Lint, compilation et tests à chaque Pull Request.</li>
+<li>Analyse de dépendances et détection de secrets.</li>
+<li>Tests unitaires du moteur de métriques obligatoires avant merge.</li>
+<li>Déploiement automatique en environnement non productif après validation.</li>
+<li>Migrations versionnées et réversibles pour la base RightQ AI.</li>
+<li>Health checks API, Redis, base AI et connectivité read-only.</li>
+<li>Déploiement progressif et rollback documenté.</li>
+<li>Feature flags pour insights, prédictions, exports avancés et sandbox.</li>
+</ul>
+
+<h2>18.4 Configuration et secrets</h2>
+<div class="code">RIGHTQ_API_URL
+RIGHTQ_MONGO_READONLY_URI
+RIGHTQ_AI_DATABASE_URI
+REDIS_URL
+LLM_PROVIDER
+LLM_API_KEY / AZURE_* / OSS_*
+OBJECT_STORAGE_*
+OTEL_EXPORTER_*
+FEATURE_INSIGHTS
+FEATURE_FORECASTING
+FEATURE_ANALYTICS_SANDBOX</div>
+
+<h1 id="tests">19. Stratégie de tests et de recette</h1>
+<h2>19.1 Pyramide de tests</h2>
+<table>
+<tr><th>Niveau</th><th>Couverture</th></tr>
+<tr><td>Unitaires</td><td>Flows de tickets, intervalles, no-show, périodes, scope, cache keys, quotas.</td></tr>
+<tr><td>Contrats</td><td>Schémas Tool Registry, LLM structured outputs, API RightQ et IdP.</td></tr>
+<tr><td>Intégration</td><td>MongoDB/API, Redis, base RightQ AI, workers et fournisseur LLM simulé.</td></tr>
+<tr><td>E2E</td><td>Page/widget, suivi conversationnel, graphiques, téléchargements et quota atteint.</td></tr>
+<tr><td>Sécurité</td><td>Cross-tenant, smart queue non autorisée, IDOR, prompt injection et PII.</td></tr>
+<tr><td>Performance</td><td>Requêtes représentatives, p95, charge concurrente, cache hit et exports.</td></tr>
+<tr><td>Recette</td><td>Scénarios du cahier des charges sur données réelles multi-tenant.</td></tr>
+</table>
+
+<h2>19.2 Jeu de fixtures métier</h2>
+<p>Construire un jeu canonique couvrant tous les chemins : CLOSED, NOSHOW, sans ATTENDING, cycles ONHOLD/ATTENDING multiples, RECALLED multiples, ticket en cours et fuseaux différents. Pour chaque fixture, le résultat attendu est calculé manuellement et versionné.</p>
+
+<h2>19.3 Gates de qualité</h2>
+<ul>
+<li>100 % des cas canoniques de métriques réussissent.</li>
+<li>Aucun test cross-tenant ou hors rôle n’échoue.</li>
+<li>Aucun nombre non sourcé n’est accepté dans les tests d’évaluation.</li>
+<li>Les réponses cache respectent la clé de scope.</li>
+<li>La démo de sprint utilise un scénario traçable et reproductible.</li>
+</ul>
+
+<h1 id="roadmap">20. Roadmap technique et organisation</h1>
+<h2>20.1 Phases et sprints</h2>
+<p>Une phase est un jalon macro ; un sprint est une itération d’une semaine. Une phase peut couvrir plusieurs sprints. Le planning proposé sera ajusté selon les accès et validations.</p>
+<table>
+<tr><th>Sprints</th><th>Phase dominante</th><th>Résultat attendu</th></tr>
+<tr><td>1–2</td><td>Cadrage et fondations</td><td>Architecture, accès, scope, données réelles, métriques de base et socle UI.</td></tr>
+<tr><td>3–4</td><td>Cœur IA</td><td>Function calling, contexte conversationnel, cas d’usage 1 à 5 et quotas.</td></tr>
+<tr><td>5–6</td><td>Intégration produit</td><td>Page, widget, continuité, conversations, graphiques et téléchargements.</td></tr>
+<tr><td>7–8</td><td>Qualité et optimisation</td><td>Insights, cache, feedback, évaluation, rapports et prévisions selon priorité.</td></tr>
+<tr><td>9</td><td>Monitoring et recette</td><td>Console KPI, sécurité, performance et scénarios complets.</td></tr>
+<tr><td>10</td><td>Finalisation</td><td>Corrections, documentation, marge et démonstration.</td></tr>
+</table>
+
+<h2>20.2 Sprint 1 — version d’architecture 0.1</h2>
+<ul>
+<li>Cartographier l’existant dès réception des accès.</li>
+<li>Valider l’accès aux dépôts, à l’IdP, aux données et aux environnements.</li>
+<li>Confirmer les règles de calcul et produire les premières fixtures.</li>
+<li>Initialiser le socle frontend et backend.</li>
+<li>Réaliser une première lecture filtrée par tenant si les accès sont disponibles.</li>
+<li>Mettre à jour ce document en version 0.2 avec décisions confirmées.</li>
+</ul>
+
+<h2>20.3 Organisation de l’équipe</h2>
+<table>
+<tr><th>Responsabilité</th><th>Owner initial</th><th>Reviewer / backup</th></tr>
+<tr><td>Architecture, orchestration, backlog et communication</td><td>Chabel</td><td>Backend 2</td></tr>
+<tr><td>Données, métriques, performance et monitoring technique</td><td>Backend 2</td><td>Chabel</td></tr>
+<tr><td>Page de conversations, historique, feedback et quota</td><td>Frontend 1</td><td>Frontend 2</td></tr>
+<tr><td>Widget, continuité, graphiques, exports et UI monitoring</td><td>Frontend 2</td><td>Frontend 1</td></tr>
+</table>
+
+<h1 id="decisions">21. Décisions, risques et questions ouvertes</h1>
+<h2>21.1 Registre de décisions initial</h2>
+<table>
+<tr><th>ID</th><th>Décision</th><th>Statut</th></tr>
+<tr><td>ADR-001</td><td>Adopter un backend NestJS en monolithe modulaire.</td><td><span class="status prop">Proposé</span></td></tr>
+<tr><td>ADR-002</td><td>Accès hybride : données métier read-only + API pour le contexte.</td><td><span class="status open">À confirmer</span></td></tr>
+<tr><td>ADR-003</td><td>Séparer la persistance RightQ AI des données opérationnelles.</td><td><span class="status prop">Proposé</span></td></tr>
+<tr><td>ADR-004</td><td>Calculs déterministes via Tool Registry ; LLM limité à l’interprétation et la formulation.</td><td><span class="status req">Requis</span></td></tr>
+<tr><td>ADR-005</td><td>Redis pour cache, quotas, locks et BullMQ.</td><td><span class="status open">À confirmer</span></td></tr>
+<tr><td>ADR-006</td><td>SSE comme transport de streaming par défaut.</td><td><span class="status prop">Proposé</span></td></tr>
+<tr><td>ADR-007</td><td>Ne pas introduire Kafka dans le MVP.</td><td><span class="status prop">Proposé</span></td></tr>
+<tr><td>ADR-008</td><td>Reporter le data warehouse jusqu’à preuve de besoin.</td><td><span class="status prop">Proposé</span></td></tr>
+<tr><td>ADR-009</td><td>Python/sandbox optionnel et isolé, jamais sur le chemin des KPI officiels.</td><td><span class="status prop">Proposé</span></td></tr>
+</table>
+
+<h2>21.2 Risques principaux</h2>
+<table>
+<tr><th>Risque</th><th>Impact</th><th>Réponse</th></tr>
+<tr><td>Accès retardés</td><td>Élevé</td><td>Escalade rapide, fixtures temporaires, jalons conditionnés et traçabilité de la dépendance.</td></tr>
+<tr><td>Erreur dans le flow des tickets</td><td>Élevé</td><td>Fixtures exhaustives, revue croisée, version des métriques et recette contre base.</td></tr>
+<tr><td>Fuite inter-tenant</td><td>Critique</td><td>Scope backend, moindre privilège, tests négatifs et audit.</td></tr>
+<tr><td>Coût LLM incontrôlé</td><td>Moyen/Élevé</td><td>Quotas, cache, modèle adapté, monitoring et limites de contexte.</td></tr>
+<tr><td>Charge MongoDB</td><td>Élevé</td><td>Plans d’exécution, index, cache, agrégats et limites de période.</td></tr>
+<tr><td>Périmètre trop ambitieux</td><td>Élevé</td><td>MoSCoW strict, démo hebdomadaire et change control.</td></tr>
+<tr><td>Couplage à un fournisseur</td><td>Moyen</td><td>Ports/adaptateurs et contrats structurés.</td></tr>
+</table>
+
+<h2>21.3 Questions ouvertes à RightCom</h2>
+<ol>
+<li>Quels dépôts, branches, conventions de PR et environnements utiliser ?</li>
+<li>Quels claims et endpoints donnent le tenant, le rôle et les smart queues ?</li>
+<li>La connexion MongoDB read-only est-elle autorisée et quels index existent ?</li>
+<li>Quelle règle est normative pour la fin de l’attente : CALLED ou ATTENDING ?</li>
+<li>Où est défini le fuseau horaire de chaque tenant ?</li>
+<li>Quand une période est-elle considérée comme clôturée ?</li>
+<li>Redis, une stack d’observabilité ou des agrégats existent-ils déjà ?</li>
+<li>Quel fournisseur LLM, quelles clés, quelle région et quel budget ?</li>
+<li>Existe-t-il un service d’abonnements/entitlements partagé entre les produits ?</li>
+<li>Quelles valeurs initiales de quotas et de conversations actives appliquer ?</li>
+<li>Les exports PDF/XLSX sont-ils obligatoires au MVP malgré leur niveau Should ?</li>
+<li>Quel comportement exact est attendu pour les insights automatiques ?</li>
+<li>Quel interlocuteur arbitre les règles métier et valide les incréments ?</li>
+</ol>
+
+<h1 id="annexes">22. Annexes techniques</h1>
+<h2>Annexe A — Événements de run proposés</h2>
+<div class="code">run.created
+scope.resolved
+quota.reserved
+intent.interpreted
+clarification.requested
+tool.selected
+cache.hit | cache.miss
+tool.execution.started
+tool.execution.completed
+answer.generation.started
+answer.chunk
+answer.evaluated
+answer.regenerated
+usage.reconciled
+run.completed | run.failed
+export.requested | export.ready</div>
+
+<h2>Annexe B — Codes d’erreur fonctionnels</h2>
+<table>
+<tr><th>Code</th><th>Usage</th></tr>
+<tr><td>AI_CLARIFICATION_REQUIRED</td><td>Question insuffisamment précise.</td></tr>
+<tr><td>AI_DATA_UNAVAILABLE</td><td>Donnée absente ou période non couverte.</td></tr>
+<tr><td>AI_SCOPE_FORBIDDEN</td><td>Périmètre demandé hors droits.</td></tr>
+<tr><td>AI_QUOTA_EXCEEDED</td><td>Quota atteint avec date de réinitialisation.</td></tr>
+<tr><td>AI_ANALYSIS_TIMEOUT</td><td>Analyse trop longue ou interrompue.</td></tr>
+<tr><td>AI_RESPONSE_LOW_CONFIDENCE</td><td>Évaluation insuffisante ; avertissement explicite.</td></tr>
+<tr><td>AI_EXPORT_PENDING</td><td>Export en cours de génération.</td></tr>
+</table>
+
+<h2>Annexe C — Definition of Done technique</h2>
+<ul>
+<li>Code relu par un reviewer et compréhensible par un backup.</li>
+<li>Tests unitaires et d’intégration réussis.</li>
+<li>Scope tenant/rôle/smart queues testé.</li>
+<li>Absence de PII dans le payload LLM et les logs.</li>
+<li>Erreurs explicites et observabilité ajoutée.</li>
+<li>Documentation API / décision mise à jour.</li>
+<li>Configuration externalisée et aucun secret commité.</li>
+<li>Démo reproductible sur environnement partagé.</li>
+</ul>
+
+<h2>Annexe D — Glossaire</h2>
+<table>
+<tr><th>Terme</th><th>Définition</th></tr>
+<tr><td>Tenant</td><td>Client RightQ identifié par <span class="tag">company</span>.</td></tr>
+<tr><td>Smart queue</td><td>File d’attente utilisée comme unité d’affectation et de contrôle d’accès.</td></tr>
+<tr><td>Tool Registry</td><td>Catalogue fermé de fonctions analytiques autorisées et typées.</td></tr>
+<tr><td>Scope hash</td><td>Empreinte stable du rôle et des smart queues autorisées.</td></tr>
+<tr><td>Usage ledger</td><td>Historique append-only des consommations et coûts.</td></tr>
+<tr><td>TTL</td><td>Durée de validité d’une entrée de cache.</td></tr>
+<tr><td>SSE</td><td>Server-Sent Events, flux unidirectionnel serveur vers navigateur.</td></tr>
+<tr><td>ADR</td><td>Architecture Decision Record, décision d’architecture argumentée.</td></tr>
+<tr><td>PII</td><td>Donnée personnelle identifiante.</td></tr>
+</table>
+
+<h2>Annexe E — Références</h2>
+<ul>
+<li>Cahier des charges « RightQ AI Analytics Assistant », version 1.0, juillet 2026.</li>
+<li>Sections de référence : périmètre §4 ; exigences §6 ; non-fonctionnel §7 ; architecture §8 ; données §9 ; livrables §10 ; planning §11 ; recette §12 ; risques §14.</li>
+</ul>
+
+<div class="callout critical"><b>Prochaine action.</b> Dès réception des accès, confronter cette proposition aux dépôts et environnements réels, documenter les écarts, confirmer les ADR et publier la version 0.2.</div>
+
+<p class="footer-note center">RightQ AI Analytics Assistant · Architecture technique v0.1 · Proposition initiale à valider · 13 juillet 2026</p>
+</div>
+</body>
+</html>
